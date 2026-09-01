@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athlete Powerhouse - Nutrition Science</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0a0a0a;
+            color: #e5e5e5;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .navbar {
+            padding: 30px 50px;
+            background-color: #000;
+            border-bottom: 1px solid #222;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h2 { margin: 0; font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 1px; color: #fff; }
+        .nav-links a { color: #a3a3a3; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; margin-left: 20px; transition: color 0.2s; }
+        .nav-links a:hover { color: #c51f28; }
+
+        .article-container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .eyebrow { color: #c51f28; font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 3px; font-weight: 700; }
+        
+        h1 { font-family: 'Oswald', sans-serif; font-size: 4rem; text-transform: uppercase; color: #fff; line-height: 1.1; margin-top: 10px; margin-bottom: 40px; }
+        h2 { font-family: 'Oswald', sans-serif; font-size: 2.5rem; text-transform: uppercase; color: #fff; margin-top: 60px; border-bottom: 2px solid #222; padding-bottom: 10px; }
+        h3 { font-size: 1.5rem; color: #c51f28; margin-top: 30px; }
+        
+        p { font-size: 1.1rem; color: #ccc; margin-bottom: 20px; }
+        
+        .macro-card {
+            background: #111;
+            border: 1px solid #222;
+            border-left: 5px solid #c51f28;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .macro-card h3 { margin-top: 0; }
+        
+        ul { padding-left: 20px; font-size: 1.1rem; color: #ccc; }
+        li { margin-bottom: 10px; }
+        
+        .cta-box {
+            margin-top: 80px;
+            margin-bottom: 80px;
+            background: linear-gradient(135deg, #c51f28 0%, #8a131a 100%);
+            padding: 50px;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .cta-box h2 { border: none; margin-top: 0; padding-bottom: 0; }
+        .btn {
+            font-family: 'Oswald', sans-serif; display: inline-block; background-color: #000; color: #fff;
+            padding: 15px 40px; text-decoration: none; font-size: 1.2rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; margin-top: 20px; transition: background 0.3s;
+        }
+        .btn:hover { background-color: #222; }
+
+    </style>
+</head>
+<body>
+    
+    <div class="navbar">
+        <h2>Athlete Powerhouse</h2>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/dashboard">Configurator</a>
+        </div>
+    </div>
+
+    <div class="article-container">
+        <span class="eyebrow">The Science of Fuel</span>
+        <h1>Nutrition & Human Performance</h1>
+        
+        <p>Athletic performance isn't just built in the gym or on the field—it is heavily dictated by how you fuel your body. Understanding macronutrients, hydration, and meal timing is the difference between plateauing and hitting new personal records.</p>
+
+        <h2>The Big Three: Macronutrients</h2>
+        <p>Macronutrients ("macros") are the structural and energetic building blocks of your diet. Depending on your sport, your body requires specific ratios of these three components to operate efficiently.</p>
+
+        <div class="macro-card">
+            <h3>1. Protein (The Rebuilder)</h3>
+            <p>Protein is comprised of amino acids, which are essential for repairing muscle tissue damaged during high-intensity training. Without adequate protein, your body cannot recover, leading to muscle loss and fatigue.</p>
+            <ul>
+                <li><strong>Energy Value:</strong> 4 calories per gram.</li>
+                <li><strong>Sports Application:</strong> Crucial for strength athletes (powerlifters, sprinters) to build muscle mass, but equally vital for endurance athletes to prevent muscle breakdown during long events.</li>
+                <li><strong>Sources:</strong> Lean meats, fish, eggs, dairy, whey, tofu, and legumes.</li>
+            </ul>
+        </div>
+
+        <div class="macro-card">
+            <h3>2. Carbohydrates (The Engine)</h3>
+            <p>Carbohydrates are broken down into glucose, the body's preferred and most efficient energy source. When glucose is stored in your muscles and liver, it's called glycogen.</p>
+            <ul>
+                <li><strong>Energy Value:</strong> 4 calories per gram.</li>
+                <li><strong>Sports Application:</strong> The primary fuel for high-intensity, anaerobic activities (sprinting, basketball) and long-duration aerobic sports (marathons, cycling). Depleted glycogen leads to "bonking" or hitting the wall.</li>
+                <li><strong>Sources:</strong> Oats, rice, potatoes, fruits, whole grain bread, and pasta.</li>
+            </ul>
+        </div>
+
+        <div class="macro-card">
+            <h3>3. Dietary Fats (The Long Game)</h3>
+            <p>Fats are incredibly dense energy sources and are vital for hormone regulation (like testosterone production), joint health, and the absorption of fat-soluble vitamins (A, D, E, K).</p>
+            <ul>
+                <li><strong>Energy Value:</strong> 9 calories per gram.</li>
+                <li><strong>Sports Application:</strong> Fats are the primary fuel source during low-to-moderate intensity, long-duration exercise (like ultra-endurance running). They also keep inflammation in check post-workout.</li>
+                <li><strong>Sources:</strong> Avocados, nuts, seeds, olive oil, and fatty fish like salmon.</li>
+            </ul>
+        </div>
+
+        <h2>Nutrient Timing: When You Eat Matters</h2>
+        <p>While hitting your total daily macro target is the most important factor, <strong>nutrient timing</strong> optimizes how your body uses that fuel:</p>
+        <ul>
+            <li><strong>Pre-Workout (1-3 hours before):</strong> Focus on complex carbohydrates to top off glycogen stores, alongside moderate protein. Keep fats and fiber low to prevent digestive stress.</li>
+            <li><strong>Intra-Workout (During):</strong> For sessions lasting over 60-90 minutes, easily digestible carbs (like gels or sports drinks) and electrolytes are necessary to maintain output.</li>
+            <li><strong>Post-Workout (Within 2 hours):</strong> The "anabolic window." Prioritize lean protein to kickstart muscle repair, and fast-digesting carbohydrates to rapidly replenish depleted glycogen.</li>
+        </ul>
+
+        <h2>Hydration & Electrolytes</h2>
+        <p>A mere 2% drop in body water can lead to a 10-20% drop in athletic performance. Hydration isn't just water; it's the balance of fluids and electrolytes (sodium, potassium, magnesium, calcium) lost through sweat. Sodium, in particular, is critical for muscle contraction and preventing cramps during intense exertion.</p>
+
+        <div class="cta-box">
+            <h2 style="color: #fff; margin-top: 0; border: none;">Ready to apply the science?</h2>
+            <p style="color: #fcebeb;">Stop guessing. Let our AI calculate your exact macros, BMR, and TDEE based on your unique athletic profile.</p>
+            <a href="/dashboard" class="btn">Build Your Protocol</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

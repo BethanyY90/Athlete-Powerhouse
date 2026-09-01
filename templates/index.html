@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athlete Powerhouse</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,800;1,800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            height: 100%;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000;
+            color: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(transparent 45%, #c51f28 45%, #c51f28 55%, transparent 55%);
+            transform: rotate(-15deg);
+            opacity: 0.05;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .content {
+            z-index: 1;
+            max-width: 1000px;
+            padding: 0 20px;
+        }
+        .eyebrow {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            color: #c51f28;
+            letter-spacing: 4px;
+            font-size: 1.2rem;
+            margin-bottom: -10px;
+            font-weight: 700;
+        }
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 6rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+        p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            line-height: 1.6;
+        }
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        .btn {
+            font-family: 'Oswald', sans-serif;
+            display: inline-block;
+            background-color: #c51f28;
+            color: #fff;
+            padding: 20px 40px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(197, 31, 40, 0.4);
+        }
+        .btn:hover {
+            background-color: #a0171f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(197, 31, 40, 0.6);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid #fff;
+            box-shadow: none;
+        }
+        .btn-secondary:hover {
+            background-color: #fff;
+            color: #111;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="content">
+            <div class="eyebrow">Precision Engineering</div>
+            <h1>Athlete Powerhouse</h1>
+            <p>Customize your high-performance nutrition protocols and sport-specific conditioning programs. Built for the elite. Powered by data.</p>
+            <div class="btn-group">
+                <a href="/dashboard" class="btn">Configure Protocol</a>
+                <a href="/learn" class="btn btn-secondary">Learn The Science</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
