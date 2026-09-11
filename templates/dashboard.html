@@ -135,6 +135,36 @@
         .submit-btn:hover { background-color: #a0171f; }
         .submit-btn:disabled { background-color: #ccc; cursor: not-allowed; color: #666; }
     </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+/* Prevent long links or words from pushing text off-screen */
+#nutrition-result-content, 
+#workout-result-content {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Force markdown tables to be horizontally scrollable on mobile */
+#nutrition-result-content table, 
+#workout-result-content table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+/* Ensure any elements inside the results scale down properly */
+#nutrition-result-content img, 
+#workout-result-content img,
+#nutrition-result-content pre,
+#workout-result-content pre {
+    max-width: 100%;
+    height: auto;
+    white-space: pre-wrap; /* Wraps code/pre blocks if they exist */
+}
+</style>
 </head>
 <body>
     <div class="layout">
