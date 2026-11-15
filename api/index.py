@@ -27,7 +27,11 @@ def home():
 @app.route('/dashboard')
 def dashboard():
     """Renders the main dashboard and configurator."""
-    return render_template('dashboard.html')
+    # Check the URL for the fullscreen flag (defaults to False)
+    is_fullscreen = request.args.get('fullscreen', 'false').lower() == 'true'
+    
+    # Pass the Python variable into your Jinja HTML template
+    return render_template('dashboard.html', is_fullscreen=is_fullscreen)
 
 @app.route('/learn')
 def learn():
