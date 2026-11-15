@@ -27,11 +27,7 @@ def home():
 @app.route('/dashboard')
 def dashboard():
     """Renders the main dashboard and configurator."""
-    # Check the URL for the fullscreen flag (defaults to False)
-    is_fullscreen = request.args.get('fullscreen', 'false').lower() == 'true'
-    
-    # Pass the Python variable into your Jinja HTML template
-    return render_template('dashboard.html', is_fullscreen=is_fullscreen)
+    return render_template('dashboard.html')
 
 @app.route('/learn')
 def learn():
@@ -53,9 +49,9 @@ def nutrition_calculator():
         rf"Sport: {data.get('sport')}, Activity Level: {data.get('activityLevel')}, "
         rf"Goal: {data.get('goal')}, Dietary Restrictions: {data.get('restrictions')}. "
         rf"Use their sex, height, weight, and age to accurately calculate their Basal Metabolic Rate (BMR) using the Mifflin-St Jeor equation and Total Daily Energy Expenditure (TDEE). "
-        rf"Plan their 3 meals and 2 snacks taking their activity level and specific goals into account. "
-        rf"Provide exact mealand snack suggestions and you MUST include actual, working markdown links to recipes online "
-        rf"for these meals and snacks. Format the entire response in clean Markdown."
+        rf"Plan their meals taking their activity level and specific goals into account. "
+        rf"Provide exact meal suggestions and you MUST include actual, working markdown links to recipes online "
+        rf"for these meals. Format the entire response in clean Markdown."
     )
     
     try:
