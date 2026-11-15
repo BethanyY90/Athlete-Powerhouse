@@ -10,9 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        body, html { 
-            margin: 0; 
-            padding: 0; 
+        body, html {
+            margin: 0;
+            padding: 0;
             height: 100vh;
             font-family: 'Montserrat', sans-serif;
             background-color: #ffffff;
@@ -20,8 +20,12 @@
             overflow: hidden;
             -webkit-font-smoothing: antialiased;
         }
-        
+
         .layout { display: flex; height: 100vh; width: 100%; }
+
+        .panel-toggle {
+            display: none;
+        }
 
         /* Left side: Showcase */
         .showcase {
@@ -134,6 +138,58 @@
         }
         .submit-btn:hover { background-color: #a0171f; }
         .submit-btn:disabled { background-color: #ccc; cursor: not-allowed; color: #666; }
+
+        /* Responsive: stack the layout and let the configurator collapse
+           into a drawer once a result has been generated, instead of
+           permanently occupying half (or a fixed 480px) of the screen. */
+        @media (max-width: 900px) {
+            body, html { height: auto; overflow-y: auto; overflow-x: hidden; }
+            .layout { flex-direction: column; height: auto; min-height: 100vh; }
+
+            .showcase { order: 2; padding: 30px 20px; flex: none; min-height: 50vh; }
+            .showcase h1 { font-size: 2.2rem; }
+
+            .configurator {
+                order: 1;
+                width: 100%;
+                box-sizing: border-box;
+                border-left: none;
+                border-bottom: 1px solid #e5e5e5;
+                box-shadow: none;
+                padding: 20px;
+                max-height: 2000px;
+                overflow: hidden;
+                transition: max-height 0.35s ease, padding 0.35s ease, opacity 0.35s ease;
+            }
+            .configurator.collapsed {
+                max-height: 0;
+                padding-top: 0;
+                padding-bottom: 0;
+                opacity: 0;
+                border-bottom: none;
+            }
+
+            .panel-toggle {
+                display: block;
+                width: 100%;
+                order: 1;
+                background-color: #111;
+                color: #fff;
+                border: none;
+                padding: 14px;
+                font-family: 'Oswald', sans-serif;
+                font-size: 0.95rem;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                cursor: pointer;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .showcase { padding: 20px 15px; }
+            .showcase h1 { font-size: 1.8rem; }
+            .form-row { flex-direction: column; gap: 0; }
+        }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -184,8 +240,11 @@
             </div>
         </div>
 
+        <!-- Mobile-only toggle to reopen the configurator after a result renders -->
+        <button type="button" class="panel-toggle" id="panelToggle" onclick="toggleConfigurator()">Edit Parameters</button>
+
         <!-- Right Configurator -->
-        <div class="configurator">
+        <div class="configurator" id="configuratorPanel">
             <div class="nav-links">
                 <a href="/" class="nav-back">&larr; Home</a>
                 <a href="/learn" class="nav-back">Nutrition Science &rarr;</a>
@@ -318,6 +377,27 @@
     </div>
 
     <script>
+        const MOBILE_QUERY = '(max-width: 900px)';
+
+        function isMobileLayout() {
+            return window.matchMedia(MOBILE_QUERY).matches;
+        }
+
+        function setConfiguratorCollapsed(collapsed) {
+            const panel = document.getElementById('configuratorPanel');
+            const toggle = document.getElementById('panelToggle');
+            panel.classList.toggle('collapsed', collapsed);
+            toggle.textContent = collapsed ? 'Edit Parameters' : 'Hide Parameters';
+        }
+
+        function toggleConfigurator() {
+            const panel = document.getElementById('configuratorPanel');
+            setConfiguratorCollapsed(!panel.classList.contains('collapsed'));
+            if (!panel.classList.contains('collapsed')) {
+                panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -339,6 +419,14 @@
             const resultBox = document.getElementById('mainResult');
             resultBox.innerHTML = marked.parse(markdownData);
             resultBox.style.display = 'block';
+
+            // On narrow screens, collapse the configurator drawer so the
+            // generated result is immediately visible instead of staying
+            // hidden below (or behind) the form panel.
+            if (isMobileLayout()) {
+                setConfiguratorCollapsed(true);
+                document.getElementById('showcaseArea').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
 
         function renderError(btnId, errorMessage) {
