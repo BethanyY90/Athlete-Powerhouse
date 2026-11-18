@@ -50,8 +50,7 @@ def nutrition_calculator():
         rf"Goal: {data.get('goal')}, Dietary Restrictions: {data.get('restrictions')}. "
         rf"Use their sex, height, weight, and age to accurately calculate their Basal Metabolic Rate (BMR) using the Mifflin-St Jeor equation and Total Daily Energy Expenditure (TDEE). "
         rf"Plan their meals taking their activity level and specific goals into account. "
-        rf"Provide exact meal suggestions and you MUST include actual, working markdown links to recipes online "
-        rf"for these meals. Format the entire response in clean Markdown."
+        rf"For the meal suggestions, strictly provide ONLY: 1) the name of the recipe, 2) a markdown link to a general cooking website (e.g., https://www.allrecipes.com), and 3) an approximation of the nutrition. Do NOT include any recipe instructions, ingredients, or specific recipe page links. Format the entire response in clean Markdown."
     )
     
     try:
